@@ -24,5 +24,18 @@ namespace PickACardUI
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // create an array of cards based on "numberOfCards" slider
+            string[] pickedCards = CardPicker.PickSomeCards((int)numberOfCards.Value);
+            // clear the previous items in the "listOfCards" list box
+            listOfCards.Items.Clear();
+            // add each item in the pickedCards array to the list box
+            foreach (string card in pickedCards)
+            {
+                listOfCards.Items.Add(card);
+            }
+        }
     }
 }
